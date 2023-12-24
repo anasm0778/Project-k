@@ -1,0 +1,512 @@
+{% block content %}
+{% load static %}
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>WhatsApp Redirect</title>
+      <style>
+         *{
+            background-color: beige;
+         }
+         body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+         }
+         nav{
+            background-color: beige;
+            overflow: hidden;
+            align-items: center;
+         }
+         nav a{
+            float: left;
+            display: block;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-left: 270px;
+         }
+         nav a:hover{
+            background-color: #ddd;
+            color: black;
+         }
+         p{
+            color: #29552b;
+         }
+         .content{
+            padding: 20px;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.5s ease-out ;
+         }
+   
+         h1{
+            color: #39618c;
+         }
+   
+         button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+         }
+         .super{
+            display: flex;
+            justify-content: center;
+         }
+         .img{
+            /* border: 1px solid black; */
+            padding: 10px;
+            margin: 10px;
+         }
+         .supertop{
+            margin-top: 50px;
+         }
+         .cnt-tbl{
+            border-collapse: collapse;
+            margin: 25px;
+            font-size: 0.9rem;
+            min-width: 400px;
+         }
+         .cnt-tbl thead tr {
+            background-color: #009879;
+            color: white;
+            text-align: center;
+         }
+         .img:hover{
+            animation: bounce 2s infinite;
+         }
+         @keyframes bounce {
+            0%{ transform: translateY(0);}
+            50%{transform: translateY(-20px);}
+            100%{transform: translateY(-10px)}
+         }
+         
+         table.comicGreen {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            border: 2px solid #4F7849;
+            background-color: #EEEEEE;
+            width: 50%;
+            text-align: center;
+            border-collapse: collapse;
+            margin-left: 25%;
+         }
+         table.comicGreen td, table.comicGreen th {
+            border: 1px solid #4F7849;
+            padding: 3px 2px;
+         }
+         table.comicGreen tbody td {
+            font-size: 19px;
+            font-weight: bold;
+            color: #4F7849;
+         }
+         table.comicGreen tr:nth-child(even) {
+            background: #CEE0CC;
+         }
+         
+      </style>
+   </head>
+   <body>
+      <nav>
+         <a onclick="showContent('home')">HOME</a>
+         <a onclick="showContent('about')">ABOUT</a>
+         <a onclick="showContent('contact')">CONTACT</a>
+      </nav>
+      <div class="content" id="home">
+         <h1>Here we serve best quality</h1>
+      </div>
+      <div class="content" id="about">
+         <h1>About Content</h1>
+      </div>
+      <div class="content" id="contact">
+         <h1>Conatct Content</h1>
+      </div>
+      <h1>Get Your Clothes Washed INSTANTLY!😎 </h1>
+      <h1>Finest Cleaning For All 🧺</h1>
+      <p>Schedule your pickup by click on chat us</p>
+      <form method="post" action="{% url 'whatsapp_redirect' %}">
+         {% csrf_token %}
+         <button type="submit">Chat with us</button>
+      </form>
+      <div class="supertop">
+         <h2>HOW IT WORKS</h2>
+         <p>Super simple Super quick Super fast</p>
+      </div>
+      <div class="super">
+         <div class="img">
+            <img src="{% static 'images/1.png' %}" alt="1" height="100px" >
+            <h3>Bag up all your dirty clothes</h3>
+            <p>Book a collection online or with <br> we will bring a bag</p>
+         </div>
+         <div class="img">
+            <img src="{% static 'images/del.png' %}" alt="2" height="100px" width="100px">
+            <h3>We pick up your clothes</h3>
+            <p>collection and deliver is not expensive <br> just let us know where you are <br> office or home</p>
+         </div>
+         <div class="img">
+            <img src="{% static 'images/4.png' %}" alt="3" height="100px">
+            <h3>We clean your clothes</h3>
+            <p>Our facilites are sor good. We <br> garuntee you'll be satisfied. We <br> put a Quality on all items</p>
+         </div>
+         <div class="img">
+            <img src="{% static 'images/delt.png' %}" alt="4" height="100px">
+            <h3>We deliver clean clothes</h3>
+            <p>We'll deliver your <br> garments back to you, anytime <br> and anywhere</p>
+         </div>
+      </div>
+      <div class="supertop">
+         <h2>OUR SERVICES</h2>
+         <p>Stay clean and dress well</p>
+      </div>
+      <div class="super">
+         <div class="img">
+            <img src="{% static 'images/washingmachine.png' %}" alt="wash" height="100px">
+            <h3>WASHING</h3>
+            <p>Lorem ipsum dolor sit, amet <br> consectetur adipisicing elit. Earum  ipsa <br> debitis. Blanditiis rerum ratione quaerat?</p>
+         </div>
+         <div class="img">
+            <img src="{% static 'images/iron.png' %}" alt="iron" height="100px">
+            <h3>IRON</h3>
+            <p>Lorem ipsum dolor sit, amet <br> consectetur adipisicing elit. Earum  ipsa <br> debitis. Blanditiis rerum ratione quaerat?</p>
+         </div>
+         <div class="img">
+            <img src="{% static 'images/shirt.png' %}" alt="shirt" height="100px">
+            <h3>DRYCLEAN</h3>
+            <p>Lorem ipsum dolor sit, amet <br> consectetur adipisicing elit. Earum  ipsa <br> debitis. Blanditiis rerum ratione quaerat?</p>
+         </div>
+      </div>
+      <div>
+         <h2>OUR PRICES FOR LAUNDARY SERVICES</h2>
+      </div>
+      <div class="tabone">
+         <table class="comicGreen">
+            <tr>
+               <th colspan="4">MOP & DUSTER</th>
+            </tr>
+            <tr>
+               <td>1</td>
+               <td>Mop</td>
+               <td>Nos</td>
+               <td>5</td>
+            </tr>
+            <tr>
+               <th colspan="4">STAFF UNIFORM</th>
+            </tr>
+            <tr>
+               <td>1</td>
+               <td>Doungree</td>
+               <td>Nos</td>
+               <td>12</td>
+            </tr>
+            <tr>
+               <td>2</td>
+               <td>Shirt</td>
+               <td>Nos</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>3</td>
+               <td>Trouser</td>
+               <td>Nos</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>4</td>
+               <td>Tie</td>
+               <td>Nos</td>
+               <td>5</td>
+            </tr>
+            <tr>
+               <td>5</td>
+               <td>Blazer</td>
+               <td>Nos</td>
+               <td>60</td>
+            </tr>
+            <tr>
+               <td>6</td>
+               <td>waist coat</td>
+               <td>Nos</td>
+               <td>13</td>
+            </tr>
+            <tr>
+               <td>7</td>
+               <td>Cheif coat</td>
+               <td>Nos</td>
+               <td>16</td>
+            </tr>
+            <tr>
+               <td>8</td>
+               <td>Apron cheif</td>
+               <td>Nos</td>
+               <td>6</td>
+            </tr>
+            <tr>
+               <td>9</td>
+               <td>Trouser Black</td>
+               <td>Nos</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>10</td>
+               <td>F & B  Apron</td>
+               <td>Nos</td>
+               <td>6</td>
+            </tr>
+            <tr>
+               <td>11</td>
+               <td>Shirt(WHITE)</td>
+               <td>Nos</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>12</td>
+               <td>KS Shirt</td>
+               <td>Nos</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>13</td>
+               <td>Sweater</td>
+               <td>Nos</td>
+               <td>45</td>
+            </tr>
+            <tr>
+               <th colspan="4">F&B Linen</th>
+            </tr>
+            <tr>
+               <td>1</td>
+               <td>Chair Cover</td>
+               <td>Nos</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>2</td>
+               <td>Chair Cap</td>
+               <td>Nos</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>3</td>
+               <td>Table mat(DRYCLEAN)</td>
+               <td>Nos</td>
+               <td>38</td>
+            </tr>
+            <tr>
+               <td>4</td>
+               <td>Table Napkin</td>
+               <td>Nos</td>
+               <td>5</td>
+            </tr>
+            <tr>
+               <td>5</td>
+               <td>Table runner</td>
+               <td>Nos</td>
+               <td>16</td>
+            </tr>
+            <tr>
+               <td>6</td>
+               <td>Round table cloth</td>
+               <td>Nos</td>
+               <td>16</td>
+            </tr>
+            <tr>
+               <td>7</td>
+               <td>Frill</td>
+               <td>Nos</td>
+               <td>30</td>
+            </tr>
+            <tr>
+               <th colspan="4">GUEST LAUNDARY</th>
+            </tr>
+            <tr>
+               <td>1</td>
+               <td>Shirt/T-shirt</td>
+               <td>Pcs</td>
+               <td>30</td>
+            </tr>
+            <tr>
+               <td>2</td>
+               <td>Trouser/Jeans</td>
+               <td>Pcs</td>
+               <td>30</td>
+            </tr>
+            <tr>
+               <td>3</td>
+               <td>Hanky</td>
+               <td>Pcs</td>
+               <td>5</td>
+            </tr>
+            <tr>
+               <td>4</td>
+               <td>Coat/Jacket/Sweater</td>
+               <td>Pcs</td>
+               <td>50</td>
+            </tr>
+            <tr>
+               <td>5</td>
+               <td>Vest/Bra</td>
+               <td>Pcs</td>
+               <td>18</td>
+            </tr>
+            <tr>
+               <td>6</td>
+               <td>U. pant/panty</td>
+               <td>Pcs</td>
+               <td></td>
+            </tr>
+            <tr>
+               <td>7</td>
+               <td>Lower</td>
+               <td>Pcs</td>
+               <td>20</td>
+            </tr>
+            <tr>
+               <td>8</td>
+               <td>Socks</td>
+               <td>Pcs</td>
+               <td>18</td>
+            </tr>
+            <tr>
+               <td>9</td>
+               <td>Shorts</td>
+               <td>Pcs</td>
+               <td>20</td>
+            </tr>
+            <tr>
+               <td>10</td>
+               <td>Kurta</td>
+               <td>Pcs</td>
+               <td>20</td>
+            </tr>
+            <tr>
+               <td>11</td>
+               <td>Pajama</td>
+               <td>Pcs</td>
+               <td>20</td>
+            </tr>
+            <tr>
+               <td>12</td>
+               <td>Tie</td>
+               <td>Pcs</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>13</td>
+               <td>Scarf</td>
+               <td>Pcs</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>14</td>
+               <td>Dupatta</td>
+               <td>Pcs</td>
+               <td>20</td>
+            </tr>
+            <tr>
+               <td>15</td>
+               <td>Saree</td>
+               <td>Pcs</td>
+               <td>50</td>
+            </tr>
+            <tr>
+               <td>16</td>
+               <td>Top</td>
+               <td>Pcs</td>
+               <td>20</td>
+            </tr>
+            <tr>
+               <th colspan="4">ROOM LINEN</th>
+            </tr>
+            <tr>
+               <td>1</td>
+               <td>Bed Sheet Single</td>
+               <td>Pcs</td>
+               <td>11</td>
+            </tr>
+            <tr>
+               <td>2</td>
+               <td>Bed Sheet double</td>
+               <td>Pcs</td>
+               <td>13</td>
+            </tr>
+            <tr>
+               <td>3</td>
+               <td>Duvet cover Single</td>
+               <td>Pcs</td>
+               <td>13</td>
+            </tr>
+            <tr>
+               <td>4</td>
+               <td>Duvet cover doube</td>
+               <td>Pcs</td>
+               <td>16</td>
+            </tr>
+            <tr>
+               <td>5</td>
+               <td>Pillow cover</td>
+               <td>Pcs</td>
+               <td>5</td>
+            </tr>
+            <tr>
+               <td>6</td>
+               <td>Bath Towel</td>
+               <td>Pcs</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>7</td>
+               <td>Hand Towel</td>
+               <td>Pcs</td>
+               <td>5</td>
+            </tr>
+            <tr>
+               <td>8</td>
+               <td>Bathmat</td>
+               <td>Pcs</td>
+               <td>6</td>
+            </tr>
+            <tr>
+               <td>9</td>
+               <td>Runner</td>
+               <td>Pcs</td>
+               <td>20</td>
+            </tr>
+            <tr>
+               <td>10</td>
+               <td>Cushion cover</td>
+               <td>Pcs</td>
+               <td>10</td>
+            </tr>
+            <tr>
+               <td>11</td>
+               <td>Bathrobe</td>
+               <td>Pcs</td>
+               <td>14</td>
+            </tr>
+            <tr>
+               <td>12</td>
+               <td>Duvet/Blanket</td>
+               <td>Pcs</td>
+               <td>150</td>
+            </tr>
+         </table>
+      </div>
+      <script>
+         function showContent(section){
+            var content = document.getElementById(section);
+            var isVisible = window.getComputedStyle(content).getPropertyValue('height') !== '0px';
+            content.style.height = isVisible ? '0' : content.scrollHeight+'px';
+         }
+      </script>
+   </body>
+</html>
+{% endblock content %}
+   
